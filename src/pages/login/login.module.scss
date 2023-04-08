@@ -1,0 +1,28 @@
+.background-img {
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-wrapper {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login{
+    color: red;
+    width: 340px;
+    height: 400px;
+    background-color: #ccc;
+}
+
+.login-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
