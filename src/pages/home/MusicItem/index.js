@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthContext';
 
 const cx = classNames.bind(styles);
-// require('../../../assets/images/background.jpg')
+
 function MusicItem({ musicId, src, name, author }) {
     const { playMusic } = useContext(AuthContext);
 
@@ -22,7 +22,9 @@ function MusicItem({ musicId, src, name, author }) {
                 <div>
                     <img className={cx('image')} src={src} alt="#"></img>
                 </div>
-                <div className={cx('name')}>{name}</div>
+                <div className={cx('name')}>
+                    <span>{name}</span>
+                </div>
                 <div className={cx('author')}>{author}</div>
             </div>
         </button>

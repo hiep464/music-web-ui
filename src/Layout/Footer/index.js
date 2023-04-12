@@ -1,6 +1,5 @@
 import styles from './styles.module.scss';
 import classNames from 'classnames/bind';
-import images from '../../assets/images/background.jpg';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { RxMixerHorizontal } from 'react-icons/rx';
 import { IoPlayBack, IoPlayForward } from 'react-icons/io5';
@@ -15,7 +14,7 @@ import { data } from '../../data/Data';
 
 const cx = classNames.bind(styles);
 
-// const $ = document.querySelector.bind(document);
+const $ = document.querySelector.bind(document);
 
 function Footer() {
     const [isPlay, setIsPlay] = useState(true);
@@ -23,8 +22,10 @@ function Footer() {
     const [curentTimeMusic, setCurentTimeMusic] = useState('0:00');
     const [progressValue, setProgressValue] = useState("0%");
 
-    // const progressValue = $("." + cx("progress-bar__value"));
-    // console.log(progressValue.style)
+    useEffect(() => {
+        const progressValue1 = $("." + cx("progress-bar"));
+        console.log(progressValue1.getBoundingClientRect());
+    }, [])
     // progressValue.style.with = `50%`;
 
 
@@ -85,7 +86,7 @@ function Footer() {
         <div className={cx('wrapper')}>
             <div className={cx('column-1')}>
                 <div className={cx('music-img')}>
-                    <img src={images} alt="#"></img>
+                    <img src={state['musicId'] ? Music.image : null} alt="#"></img>
                 </div>
                 <div className={cx('music-info')}>
                     <div className={cx('music-info-name')}>
