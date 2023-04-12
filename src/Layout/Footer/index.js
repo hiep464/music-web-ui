@@ -63,15 +63,14 @@ function Footer() {
 
     const curentTime = () => {
         if (state['isPlay']) {
-            console.log(currentMusic.current.audioEl.current.currentTime);
             const secondsCurrent = currentMusic.current.audioEl.current.currentTime;
             const seconds = currentMusic.current.audioEl.current.duration;
             const minuteCurrent = Math.floor(secondsCurrent / 60);
             const secondCurrent = Math.floor(secondsCurrent % 60);
+            const percentprogress = secondsCurrent/seconds * 100;
+            setProgressValue(`${percentprogress}%`);
             if (secondCurrent < 10) setCurentTimeMusic(minuteCurrent + ':0' + secondCurrent);
             else setCurentTimeMusic(minuteCurrent + ':' + secondCurrent);
-            const percentprogress = secondCurrent/seconds * 100;
-            setProgressValue(`${percentprogress}%`);
         }
     };
 
