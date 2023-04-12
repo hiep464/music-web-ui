@@ -3,5 +3,15 @@
 }
 
 .left{
-    width: 280px;
+    width: 250px;
+}
+
+.right{
+    width: calc(100% - 250px);
+}
+
+.right-content{
+    background-color: #1b1b1b;
+    margin-top: 48px;
+    min-height: calc(100vh - 48px);
 }

@@ -1,0 +1,144 @@
+.wrapper{
+    width: 100vw;
+    background-color: #181818;
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    display: flex;
+    color: #fff;
+}
+
+.column-1{
+    width: 20%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.column-2{
+    width: 60%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.column-3{
+    width: 20%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-img > img{
+    width: 60px;
+    height: 60px;
+    margin: 0 20px;
+}
+
+.music-info{
+    margin-right: 26px;
+
+    .music-info-name{
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .music-info-author{
+        font-size: 12px;
+        font-weight: 400;
+    }
+}
+
+.column-2-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 14px 0px;
+}
+
+.icon{
+    width: 28px;
+    height: 28px;
+    color: #fff;
+    margin: 0px 14px;
+    cursor: pointer;
+}
+
+.icon-play{
+    width: 44px;
+    height: 44px;
+}
+
+.column-2-body{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-bar-wraper {
+    padding: 1px 0;
+    cursor: pointer;
+    width: 54%;
+    margin: 0 4px;
+}
+
+.progress-bar {
+    height: 4px;
+    border-radius: 5px;
+    background-color: #dadada;
+    user-select: none;
+}
+
+.progress-bar__value {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    background: linear-gradient(45deg, rgb(65 207 208) 9%, rgb(200, 80, 192) 55%, rgb(255, 204, 112) 100%);
+    border-radius: 5px;
+    // width: 50%;
+}
+
+.progress-bar__value::after {
+    content: " ";
+    position: absolute;
+    right: -8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(243, 62, 136);
+    border: 2px solid #fff;
+    transition: all 0.2s linear;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.progress-bar-wraper:hover .progress-bar__value::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.icon-m{
+    width: 18px;
+    height: 18px;
+    margin: 0 8px;
+}
+
+.progress-bar-wraper-volumn{
+    padding: 1px 0;
+    cursor: pointer;
+    width: 100px;
+}
+
+.progress-bar-wraper-volumn:hover .progress-bar__value::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hide{
+    display: none;
+}

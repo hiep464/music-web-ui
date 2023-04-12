@@ -1,16 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { publicRoutes } from "./route";
-import DefaultLayout from "./Layout/DefaultLayout";
-import { Fragment } from "react";
-import GlobalStyles from "./components/GlobalStyles";
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { publicRoutes } from './route';
+import DefaultLayout from './Layout/DefaultLayout';
+import { Fragment } from 'react';
+import GlobalStyles from './components/GlobalStyles';
+import { AuthContextProvider } from '../src/context/AuthContext';
 
 function App() {
-
     return (
-        <BrowserRouter>
-            <Routes>
-                {publicRoutes.map((route, index) => {
+        <AuthContextProvider>
+            <BrowserRouter>
+                <Routes>
+                    {publicRoutes.map((route, index) => {
                         const Page = route.element;
                         let Layout = DefaultLayout;
 
@@ -34,8 +34,9 @@ function App() {
                             />
                         );
                     })}
-            </Routes>
-        </BrowserRouter>
+                </Routes>
+            </BrowserRouter>
+        </AuthContextProvider>
     );
 }
 

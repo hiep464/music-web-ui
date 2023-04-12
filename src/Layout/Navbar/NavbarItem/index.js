@@ -6,8 +6,10 @@ const cx = classNames.bind(styles);
 function NavbarItem({children, text}) {
     return ( 
         <div className={cx('wrapper')}>
-            {children}
-            <span>{text}</span>
+            <div className={cx("icon")}>
+                {children}
+            </div>
+            <span className={cx("text")}>{text}</span>
         </div>
      );
 }
