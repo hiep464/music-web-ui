@@ -24,9 +24,15 @@ function Footer() {
 
     useEffect(() => {
         const progressValue1 = $("." + cx("progress-bar"));
-        console.log(progressValue1.getBoundingClientRect());
+        progressValue1.addEventListener("click", (e) => {
+            const rect = progressValue1.getBoundingClientRect();
+            const percentProgress = parseFloat(((e.pageX - rect.left) / progressValue1.offsetWidth) * 100);
+            console.log(percentProgress);
+            const seconds = currentMusic.current.audioEl.current.duration;
+            currentMusic.current.audioEl.current.currentTime = percentProgress*seconds / 100;
+            setProgressValue(`${percentProgress}%`);
+        })
     }, [])
-    // progressValue.style.with = `50%`;
 
 
     const { state } = useContext(AuthContext);
