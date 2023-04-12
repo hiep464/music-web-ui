@@ -4,6 +4,8 @@ import GiaNhuCoAyChuaXuatHien from "../assets/audio/GiaNhuCoAyChuaXuatHien.mp3"
 import SuytNuaThi from "../assets/audio/SuytNuaThi.mp3"
 import NeuLucDo from "../assets/audio/NeuLucDo.mp3"
 import MotPhut from "../assets/audio/1Phut.mp3"
+import MotPhut from "../assets/audio/Tu.mp3"
+import MotPhut from "../assets/audio/DoiLua.mp3"
 import ChungTaCuaHienTai from "../assets/audio/ChungTaCuaHienTai.mp3"
 import ThangTuLaLoiNoiDoiCuaEm from "../assets/audio/ThangTuLaLoiNoiDoiCuaEm.mp3"
 import WaittingForYou from "../assets/audio/WaittingForYou.mp3"
@@ -18,7 +20,8 @@ import music7 from "../assets/images/music7.jfif"
 import music8 from "../assets/images/music8.jfif"
 import music9 from "../assets/images/music9.jfif"
 import music10 from "../assets/images/music10.jfif"
-
+import music11 from "../assets/images/music11.jfif"
+import music12 from "../assets/images/music12.jfif"
 
 export const data = [
     {musicId: 1, name: "Nàng thơ", author: "Hoàng Dũng", audio: NangTho, image: music1},
@@ -31,4 +34,6 @@ export const data = [
     {musicId: 8, name: "Suýt nữa thì", author: "Andiez", audio: SuytNuaThi, image: music8},
     {musicId: 9, name: "1 phút", author: "Andiez", audio: MotPhut, image: music9},
     {musicId: 10, name: "Nếu lúc đó", author: "Tlinh", audio: NeuLucDo, image: music10},
+    {musicId: 11, name: "I Will Always Love You", author: "Tú", audio: Tu, image: music11},
+    {musicId: 12, name: "Dối lừa", author: "Tón", audio: DoiLua, image: music12},
 ]
