@@ -1,4 +1,4 @@
-# View to website
+# View website
 - Link : https://music-web-omega.vercel.app
 - For login:\
 account : hiep\
