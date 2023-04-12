@@ -6,16 +6,15 @@ import { useNavigate } from 'react-router-dom';
 const cx = classNames.bind(styles);
 
 function Login() {
+    // const [account, setAccount] = useState('');
+    // const [password, setPassword] = useState('');
 
-    const [account, setAccount] = useState("");
-    const [password, setPassword] = useState("");
-    
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-        if(account === "hiep" && password === "hiep")
-            navigate("/home")
-    }
+        // if(account === "hiep" && password === "hiep")
+        navigate('/home');
+    };
 
     return (
         <div className={cx('wrapper')}>
@@ -33,13 +32,26 @@ function Login() {
                     </div>
                     <div className={cx('login-item')}>
                         <span>Account: </span>
-                        <input type="text" className={cx('login-input')} onChange={(e)=>setAccount(e.target.value)}></input>
+                        <input
+                            type="text"
+                            className={cx('login-input')}
+                            // onChange={(e) => setAccount(e.target.value)}
+                        ></input>
                     </div>
                     <div className={cx('login-item')}>
                         <span>Password: </span>
-                        <input type="password" className={cx('login-input')} onChange={(e)=>setPassword(e.target.value)}></input>
+                        <input
+                            type="password"
+                            className={cx('login-input')}
+                            // onChange={(e) => setPassword(e.target.value)}
+                        ></input>
                     </div>
-                    <button className={cx('login-submit')} onClick={handleSubmit}>Submit</button>
+                    <div className={cx('notifi')}>
+                        <span>No authentication, click Submit to view Website</span>
+                    </div>
+                    <button className={cx('login-submit')} onClick={handleSubmit}>
+                        Submit
+                    </button>
                 </div>
             </div>
         </div>

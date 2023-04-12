@@ -26,6 +26,12 @@
     box-shadow: 1px 1px 1px #ccc;
 }
 
+.notifi {
+    text-align: center;
+    font-size: 12px;
+    background-color: #ffcc00;
+}
+
 .login-header {
     margin-top: 14px;
     display: flex;
@@ -56,7 +62,7 @@
     cursor: pointer;
 }
 
-.login-submit:hover{
+.login-submit:hover {
     background-color: red;
     color: white;
 }
