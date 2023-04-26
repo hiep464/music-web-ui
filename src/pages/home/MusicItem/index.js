@@ -6,7 +6,7 @@ import { AuthContext } from '../../../context/AuthContext';
 
 const cx = classNames.bind(styles);
 
-function MusicItem({ musicId, src, name, author }) {
+function MusicItem({ musicId, src, name, author}) {
     const { playMusic } = useContext(AuthContext);
 
     const handlePlay = () => {
@@ -19,9 +19,7 @@ function MusicItem({ musicId, src, name, author }) {
                 <BsFillPlayCircleFill className={cx('display-icon')} />
             </div>
             <div className={cx('content')}>
-                <div>
-                    <img className={cx('image')} src={src} alt="#"></img>
-                </div>
+                <img className={cx('image')} src={src} alt="#"></img>
                 <div className={cx('name')}>
                     <span>{name}</span>
                 </div>

@@ -3,6 +3,10 @@
     height: 100vh;
 }
 
+.background{
+    overflow: hidden;
+}
+
 .login-wrapper {
     position: fixed;
     bottom: 0;
@@ -17,7 +21,7 @@
 .login {
     width: 300px;
     // height: 400px;
-    background-color: #ccc;
+    background-color: #b3ddd1;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -42,6 +46,10 @@
     flex-direction: column;
 }
 
+.login-header-text{
+    color: #c58ade;
+}
+
 .login-item {
     display: flex;
     flex-direction: column;
@@ -55,6 +63,7 @@
         border: none;
         border-radius: 8px;
         padding: 4px 10px;
+        background-color: #d1dce2;
     }
 
     .login-input:focus{
@@ -63,23 +72,44 @@
 }
 
 .login-submit {
-    padding: 10px 44px;
-    margin: 10px 0 20px 0;
+    padding: 8px 34px;
+    margin-bottom: 20px;
     border-radius: 4px;
-    background-color: #e0e0e0;
+    background-color: #ead2e0;
     border: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-.login-submit:hover {
-    background-color: red;
-    color: white;
-}
-
-
 
 .tuy-luyp-icon {
     border-radius: 50%;
     width: 36px;
     height: 36px;
+}
+
+.error-noti-wrapper{
+    margin-top: 6px;
+    color: #e25b45;
+    text-align: center;
+}
+
+.error-icon{
+    width: 24px;
+    height: 24px;
+}
+
+.icon{
+    width: 24px;
+    height: 24px;
+    color: #6f89a2;
+}
+
+.login-submit:hover {
+    background-color: #edb5d2;
+
+    .icon{
+        color: #fd475d;
+    }
 }

@@ -3,14 +3,14 @@ import classNames from 'classnames/bind';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { RxMixerHorizontal } from 'react-icons/rx';
 import { IoPlayBack, IoPlayForward } from 'react-icons/io5';
-import { BsFillPlayCircleFill, BsPauseCircleFill, BsFillHeartFill } from 'react-icons/bs';
+import { BsFillPlayCircleFill, BsPauseCircleFill, BsFillHeartFill, BsFillBalloonFill } from 'react-icons/bs';
 import { RiRepeatLine } from 'react-icons/ri';
-import { HiOutlineQueueList } from 'react-icons/hi2';
 import { BiVolumeLow } from 'react-icons/bi';
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import ReactAudioPlayer from 'react-audio-player';
 import { data } from '../../data/Data';
+import Bupple from './Bupple';
 
 const cx = classNames.bind(styles);
 
@@ -31,7 +31,7 @@ function Footer() {
     const [progressVolume, setProgressVolume] = useState(1.0);
     const [isheart, setIsheart] = useState(false);
     const [isRepeat, setIsRepeat] = useState(false);
-    const [Music, setMusic] = useState(null)
+    const [Music, setMusic] = useState(null);
 
     useEffect(() => {
         const progressValue1 = $('.' + cx('progress-bar'));
@@ -50,8 +50,8 @@ function Footer() {
         });
     }, []);
 
-    const { state, playMusic} = useContext(AuthContext);
-    const {musicId} =  state;
+    const { state, playMusic, addBupple, removeBupple } = useContext(AuthContext);
+    const { musicId } = state;
 
     // const getMusic = () => {
     //     if (state['isPlay']) {
@@ -128,24 +128,27 @@ function Footer() {
     };
 
     const autoPlay = () => {
-        if(musicId < 12)
-            playMusic(musicId + 1)
-        else playMusic(1)
-    }
+        if (musicId < 12) playMusic(musicId + 1);
+        else playMusic(1);
+    };
 
     const handleRepeat = () => {
-        if(isRepeat)
-            setIsRepeat(false)
-        else
-            setIsRepeat(true)
-    }
+        if (isRepeat) setIsRepeat(false);
+        else setIsRepeat(true);
+    };
 
     const repeatMusic = () => {
         currentMusic.current.audioEl.current.play();
-    }
+    };
+
+    const handleBupple = () => {
+        if (state['isBupple']) removeBupple();
+        else addBupple();
+    };
 
     return (
         <div className={cx('wrapper')}>
+            {state['isBupple'] ? <Bupple /> : ''}
             <div className={cx('column-1')}>
                 <div className={cx('music-img')}>
                     <img src={state['isPlay'] ? Music?.image : null} alt="#"></img>
@@ -176,7 +179,10 @@ function Footer() {
                         <BsPauseCircleFill onClick={pause} className={cx('icon', 'icon-play')} />
                     )}
                     <IoPlayForward className={cx('icon', 'icon-next')} onClick={next} />
-                    <RiRepeatLine className={cx('icon', 'icon-repeat', isRepeat ? 'repeat' : '')} onClick={handleRepeat}/>
+                    <RiRepeatLine
+                        className={cx('icon', 'icon-repeat', isRepeat ? 'repeat' : '')}
+                        onClick={handleRepeat}
+                    />
                 </div>
                 <div className={cx('column-2-body')}>
                     <span>{curentTimeMusic}</span>
@@ -189,8 +195,8 @@ function Footer() {
                 </div>
             </div>
             <div className={cx('column-3')}>
-                <HiOutlineQueueList className={cx('icon-m')} />
-                <BiVolumeLow />
+                <BsFillBalloonFill className={cx('icon-m', state['isBupple'] ? 'bupple' : '')} onClick={handleBupple} />
+                <BiVolumeLow className={cx('icon-s')} />
                 <div className={cx('progress-bar-wraper-volume')}>
                     <div className={cx('progress-bar-volume')}>
                         <div style={{ width: `${progressVolume * 100}%` }} className={cx('progress-bar__value')}></div>
@@ -200,7 +206,7 @@ function Footer() {
             <ReactAudioPlayer
                 ref={currentMusic}
                 className={cx('hide')}
-                id='audio-player'
+                id="audio-player"
                 // src={state['musicId'] ? Music?.audio : null}
                 src={Music?.audio}
                 autoPlay

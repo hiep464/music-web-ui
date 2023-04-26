@@ -12,20 +12,20 @@ function Gift() {
                 </div>
 
                 <div className="card" onMouseEnter={() => {setIsDisplay(true)}} onMouseLeave={() => {setIsDisplay(false)}}>
-                    {/* <div className="title1">♥</div> */}
-                    {/* <div className="desc">Love From India</div> */}
+                    <div className="title1">♥</div>
+                    <div className="desc">Love From Nice</div>
                     <div>
                         {
                             isDisplay ? 
                             <TypeAnimation
                                 sequence={[
-                                    'hi',
+                                    'Chúng ta đã đi cùng nhau cũng gần được 1000 days ùi ha, cũm có lúc vui, buồn, hạnh phúc, nhưm quan trọng là lúc nào chúm ta cũm có nhau. Có nhữm lúc do sự bướng bỉnh của anh mà đã làm iem phải bùn, cảm ưn iem zì vẫn kiên trì, iu thưn a. A sẽ iu iem nhìu hưn mỗi ngày. HAPPY 1000 DAYS',
                                     1000,
                                 ]}
                                 wrapper="span"
                                 cursor={false}
                                 repeat={Infinity}
-                                style={{ fontSize: '24px', display: 'inline-block', textAlign: 'center' }}
+                                style={{ fontSize: '14px', display: 'inline-block', textAlign: 'center', color: 'pink', marginLeft: '4px' }}
                             />
                             : ''
                         }

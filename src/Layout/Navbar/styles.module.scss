@@ -3,7 +3,7 @@
     position: fixed;
     width: 240px;
     height: 100vh;
-    color: white;
+    color: var(--color-navbar-header-text);
 }
 
 .header{
@@ -17,7 +17,7 @@
 }
 
 .header-icon{
-    color: pink;
+    color: var(--color-header-icon);
     width: 34px;
     height: 34px;
     margin-right: 10px;

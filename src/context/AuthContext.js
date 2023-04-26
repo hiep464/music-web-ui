@@ -17,6 +17,7 @@ export const AuthContextProvider = ({ children }) => {
     const [isHeart, setIsHeart] = React.useState(false);
     const [isGift, setIsGift] = React.useState(false);
     const [isLogin, setIsLogin] = React.useState(false);
+    const [isBupple, setIsBupple] = React.useState(false);
 
     const playMusic = (id) => {
         setMusicId(id);
@@ -42,6 +43,14 @@ export const AuthContextProvider = ({ children }) => {
         setIsLogin(true)
     }
 
+    const addBupple = () => {
+        setIsBupple(true)
+    }
+
+    const removeBupple = () => {
+        setIsBupple(false)
+    }
+
     return (
         <AuthContext.Provider
             value={{
@@ -50,13 +59,16 @@ export const AuthContextProvider = ({ children }) => {
                     isPlay,
                     isHeart,
                     isGift,
-                    isLogin
+                    isLogin,
+                    isBupple
                 },
                 playMusic,
                 inHeartPage,
                 inHomePage,
                 inGift,
-                login
+                login,
+                addBupple,
+                removeBupple
             }}
         >
             {children}

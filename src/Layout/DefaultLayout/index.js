@@ -5,7 +5,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { AuthContext } from '../../context/AuthContext';
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -29,7 +29,7 @@ function DefaultLayout({ children }) {
             </div>
             {state['isPlay'] ? <Footer /> : ''}
         </div>
-        : ''
+        : <Link to={'/'}>Đăng nhập</Link>
     );
 }
 

@@ -1,12 +1,12 @@
 .wrapper{
     height: 48px;
     background-color: var(--background-color-header);
-    color: white;
+    color: var(--color-header);
     width: 100%;
     position: fixed;
     display: flex;
     align-items: center;
-    z-index: 1000;
+    z-index: 1;
 }
 
 .left{

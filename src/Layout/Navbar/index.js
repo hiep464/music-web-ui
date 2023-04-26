@@ -61,7 +61,7 @@ function Navbar() {
                     </NavbarItem>
                 </div>
 
-                <NavbarItem text="Dark mode">
+                <NavbarItem text="Dark Mode">
                     {darkMode ? (
                         <BsToggleOn className={cx('icon')} onClick={removeDarkMode} />
                     ) : (
