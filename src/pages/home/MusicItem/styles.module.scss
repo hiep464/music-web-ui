@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     border: none;
-    background-color: #4d4141;
+    background-color: var(--background-color-music-item);
     position: relative;
     cursor: pointer;
     margin: 20px 16px;
@@ -17,7 +17,7 @@
     position: absolute;
     right: 22px;
     top: 128px;
-    color: #1ed760;
+    color: var(--color-display);
     width: 38px;
     height: 38px;
     // transition: all 0.2s linear;
@@ -29,7 +29,7 @@
 }
 
 .wrapper:hover{
-    background-color: #282828;
+    background-color: var(--color-music-item-hover);
 
     .display{
         display: flex;
@@ -61,5 +61,5 @@
 }
 
 .author{
-    color: #a4a4a4;
+    color: var(--color-text-author);
 }

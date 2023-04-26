@@ -1,13 +1,13 @@
 .wrapper{
-    background-color: black;
+    background-color: var(--background-color-navbar);
     position: fixed;
-    width: 250px;
+    width: 240px;
     height: 100vh;
+    color: white;
 }
 
 .header{
     display: flex;
-    color: white;
     height: 48px;
     align-items: center;
     justify-content: center;
@@ -26,9 +26,46 @@
 .icon{
     height: 28px;
     width: 28px;
-    color: white;
 }
 
 .first-row{
     margin-bottom: 38px;
+}
+
+.disable{
+    color: rgb(139, 133, 133);
+    cursor: default;
+}
+
+.third-row{
+    margin-top: 64px;
+}
+
+.icon-animation{
+    width: 28px;
+}
+
+.icon-gift{
+    width: 54px;
+    height: 54px;
+}
+
+.gift-wrapper{
+    margin-left: 80px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    span {
+        margin-left: 4px;
+        font-weight: 600;
+        font-size: 24px;
+    }
+}
+
+.icon-animation{
+    position: absolute;
+    top: -34px;
+    left: -6px;
 }

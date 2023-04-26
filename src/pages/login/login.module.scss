@@ -39,18 +39,26 @@
     justify-content: center;
     font-size: 28px;
     font-weight: 600;
-    color: rgb(237, 46, 46);
+    flex-direction: column;
 }
 
 .login-item {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 50%;
     margin: 18px 0;
+    border-radius: 8px;
 
     .login-input {
         margin-top: 8px;
         height: 24px;
+        border: none;
+        border-radius: 8px;
+        padding: 4px 10px;
+    }
+
+    .login-input:focus{
+        outline: 0;
     }
 }
 
@@ -59,10 +67,19 @@
     margin: 10px 0 20px 0;
     border-radius: 4px;
     background-color: #e0e0e0;
+    border: none;
     cursor: pointer;
 }
 
 .login-submit:hover {
     background-color: red;
     color: white;
+}
+
+
+
+.tuy-luyp-icon {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
 }

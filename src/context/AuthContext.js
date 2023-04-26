@@ -14,21 +14,49 @@ export const AuthContext = createContext({});
 export const AuthContextProvider = ({ children }) => {
     const [musicId, setMusicId] = React.useState(null);
     const [isPlay, setIsPlay] = React.useState(false);
+    const [isHeart, setIsHeart] = React.useState(false);
+    const [isGift, setIsGift] = React.useState(false);
+    const [isLogin, setIsLogin] = React.useState(false);
 
     const playMusic = (id) => {
         setMusicId(id);
         setIsPlay(true);
     }
 
+    const inHeartPage = () => {
+        setIsHeart(true)
+        setIsGift(true)
+    }
+
+    const inHomePage = () => {
+        setIsHeart(false)
+        setIsGift(false)
+    }
+
+    const inGift = () => {
+        setIsGift(true)
+        setIsHeart(false)
+    }
+
+    const login = () => {
+        setIsLogin(true)
+    }
 
     return (
         <AuthContext.Provider
             value={{
                 state: {
                     musicId,
-                    isPlay
+                    isPlay,
+                    isHeart,
+                    isGift,
+                    isLogin
                 },
-                playMusic
+                playMusic,
+                inHeartPage,
+                inHomePage,
+                inGift,
+                login
             }}
         >
             {children}

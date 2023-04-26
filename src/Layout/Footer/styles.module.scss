@@ -1,11 +1,11 @@
 .wrapper{
     width: 100vw;
-    background-color: #181818;
+    background-color: var(--background-color-footer);
     position: fixed;
     bottom: 0;
-    height: 108px;
+    height: 86px;
     display: flex;
-    color: #fff;
+    color: var(--color-footer);
 }
 
 .column-1{
@@ -56,7 +56,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 14px 0px;
+    margin: 10px 0px 6px 0;
 }
 
 .icon{
@@ -72,6 +72,25 @@
     height: 44px;
 }
 
+.icon-play:hover{
+    color: #bf59c1;
+}
+
+.icon-next:hover{
+    color: #d873a9;
+}
+
+.icon-prev:hover{
+    color: #9a7cc6;
+}
+
+// .icon-repeat:hover{
+//     color: #e79693;
+// }
+
+.repeat{
+    color: #e79693;
+}
 .column-2-body{
     width: 100%;
     display: flex;
@@ -86,7 +105,7 @@
     margin: 0 4px;
 }
 
-.progress-bar {
+.progress-bar, .progress-bar-volume {
     height: 4px;
     border-radius: 5px;
     background-color: #dadada;
@@ -128,17 +147,30 @@
     margin: 0 8px;
 }
 
-.progress-bar-wraper-volumn{
+.progress-bar-wraper-volume{
     padding: 1px 0;
     cursor: pointer;
     width: 100px;
 }
 
-.progress-bar-wraper-volumn:hover .progress-bar__value::after {
+.progress-bar-wraper-volume:hover .progress-bar__value::after {
     visibility: visible;
     opacity: 1;
 }
 
 .hide{
     display: none;
+}
+
+.music-heart-icon{
+    color: #f44336;
+}
+
+.music-heart-icon-outline, .music-heart-icon{
+    width: 22px;
+    height: 22px;
+}
+
+.music-heart{
+    cursor: pointer;
 }

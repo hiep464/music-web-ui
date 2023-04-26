@@ -1,1 +1,24 @@
-@import 'normalize.css'
+@import 'normalize.css';
+.dark-mode {
+    --background-color-header: #0f0f0f;
+    --background-color-navbar: black;
+    --background-color-footer: #181818;
+    --background-color-home: #121212;
+    --background-color-music-item: #181818;
+    --color-display: #1ed760;
+    --color-music-item-hover: #282828;
+    --color-text-author: #a4a4a4;
+    --color-footer: #fff;
+}
+
+:root {
+    --background-color-header: #a5dee5;
+    --background-color-navbar: #80beaf;
+    --background-color-footer: #c6c09c;
+    --background-color-home: #a7d676;
+    --background-color-music-item: #181818;
+    --color-display: #1ed760;
+    --color-music-item-hover: #282828;
+    --color-text-author: #a4a4a4;
+    --color-footer: #fff;
+}

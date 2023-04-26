@@ -3,15 +3,15 @@
 }
 
 .left{
-    width: 250px;
+    width: 240px;
 }
 
 .right{
-    width: calc(100% - 250px);
+    width: calc(100% - 240px);
 }
 
 .right-content{
-    background-color: #1b1b1b;
+    background-color: var(--background-color-home);
     margin-top: 48px;
     min-height: calc(100vh - 48px);
 }

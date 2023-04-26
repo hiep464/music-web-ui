@@ -1,19 +1,24 @@
 import styles from './login.module.scss';
 import classNames from 'classnames/bind';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import icon from '../../assets/images/icon.png';
+import { TypeAnimation } from 'react-type-animation';
+import { useState, useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 const cx = classNames.bind(styles);
 
 function Login() {
-    // const [account, setAccount] = useState('');
+    const [code, setCode] = useState('');
     // const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
-
+    const { login } = useContext(AuthContext);
     const handleSubmit = () => {
-        // if(account === "hiep" && password === "hiep")
-        navigate('/home');
+        if(code === "abcxyz"){
+            navigate('/home');
+            login();
+        }
     };
 
     return (
@@ -28,27 +33,41 @@ function Login() {
             <div className={cx('login-wrapper')}>
                 <div className={cx('login')}>
                     <div className={cx('login-header')}>
-                        <span>Login</span>
+                        {/* <span>Login</span> */}
+                        <img className={cx('tuy-luyp-icon')} src={icon} alt="#"></img>
+                        {/* <span className={cx('type')}>Để xác minh người iu tớ thì cậu cần có mã code</span> */}
+                    </div>
+                    <div>
+                        <TypeAnimation
+                            sequence={[
+                                'Hi',
+                                1000,
+                                // () => {
+                                //     console.log('Sequence completed'); // Place optional callbacks anywhere in the array
+                                // },
+                            ]}
+                            wrapper="span"
+                            cursor={false}
+                            repeat={Infinity}
+                            style={{ fontSize: '24px', display: 'inline-block', textAlign: 'center'}}
+                        />
                     </div>
                     <div className={cx('login-item')}>
-                        <span>Account: </span>
+                        {/* <span>Code: </span> */}
                         <input
-                            type="text"
+                            type="password"
                             className={cx('login-input')}
-                            // onChange={(e) => setAccount(e.target.value)}
+                            onChange={(e) => setCode(e.target.value)}
                         ></input>
                     </div>
-                    <div className={cx('login-item')}>
+                    {/* <div className={cx('login-item')}>
                         <span>Password: </span>
                         <input
                             type="password"
                             className={cx('login-input')}
                             // onChange={(e) => setPassword(e.target.value)}
                         ></input>
-                    </div>
-                    <div className={cx('notifi')}>
-                        <span>No authentication, click Submit to view Website</span>
-                    </div>
+                    </div> */}
                     <button className={cx('login-submit')} onClick={handleSubmit}>
                         Submit
                     </button>

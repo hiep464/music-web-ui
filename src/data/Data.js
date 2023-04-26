@@ -24,16 +24,16 @@ import music11 from "../assets/images/music11.jfif"
 import music12 from "../assets/images/music12.jfif"
 
 export const data = [
-    {musicId: 1, name: "Nàng thơ", author: "Hoàng Dũng", audio: NangTho, image: music1},
-    {musicId: 2, name: "Đôi mươi", author: "Hoàng Dũng", audio: DoiMuoi, image: music2},
-    {musicId: 3, name: "Giá như cô ấy chưa xuất hiện", author: "Miu Lê", audio: GiaNhuCoAyChuaXuatHien, image: music3},
-    {musicId: 4, name: "Waitting for you", author: "Mono", audio: WaittingForYou, image: music4},
-    {musicId: 5, name: "Chúng ta của hiện tại", author: "Sơn Tùng MTP", audio: ChungTaCuaHienTai, image: music5},
-    {musicId: 6, name: "Tháng tư là lời nói dối của em", author: "Hà Anh Tuấn", audio: ThangTuLaLoiNoiDoiCuaEm, image: music6},
-    {musicId: 7, name: "Như những gì anh nói", author: "BOZITT", audio: NhuNhungGiAnhNoi, image: music7},
-    {musicId: 8, name: "Suýt nữa thì", author: "Andiez", audio: SuytNuaThi, image: music8},
-    {musicId: 9, name: "1 phút", author: "Andiez", audio: MotPhut, image: music9},
-    {musicId: 10, name: "Nếu lúc đó", author: "Tlinh", audio: NeuLucDo, image: music10},
-    {musicId: 11, name: "I Will Always Love You", author: "Tú", audio: Tu, image: music11},
-    {musicId: 12, name: "Dối lừa", author: "Tón", audio: DoiLua, image: music12},
+    {musicId: 1, name: "Nàng thơ", author: "Hoàng Dũng", audio: NangTho, image: music1, heart: false},
+    {musicId: 2, name: "Đôi mươi", author: "Hoàng Dũng", audio: DoiMuoi, image: music2, heart: false},
+    {musicId: 3, name: "Giá như cô ấy chưa xuất hiện", author: "Miu Lê", audio: GiaNhuCoAyChuaXuatHien, image: music3, heart: false},
+    {musicId: 4, name: "Waitting for you", author: "Mono", audio: WaittingForYou, image: music4, heart: false},
+    {musicId: 5, name: "Chúng ta của hiện tại", author: "Sơn Tùng MTP", audio: ChungTaCuaHienTai, image: music5, heart: false},
+    {musicId: 6, name: "Tháng tư là lời nói dối của em", author: "Hà Anh Tuấn", audio: ThangTuLaLoiNoiDoiCuaEm, image: music6, heart: false},
+    {musicId: 7, name: "Như những gì anh nói", author: "BOZITT", audio: NhuNhungGiAnhNoi, image: music7, heart: false},
+    {musicId: 8, name: "Suýt nữa thì", author: "Andiez", audio: SuytNuaThi, image: music8, heart: false},
+    {musicId: 9, name: "1 phút", author: "Andiez", audio: MotPhut, image: music9, heart: false},
+    {musicId: 10, name: "Nếu lúc đó", author: "Tlinh", audio: NeuLucDo, image: music10, heart: false},
+    {musicId: 11, name: "I Will Always Love You", author: "Tú", audio: Tu, image: music11, heart: false},
+    {musicId: 12, name: "Dối lừa", author: "Tón", audio: DoiLua, image: music12, heart: false},
 ]

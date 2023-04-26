@@ -5,13 +5,20 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { AuthContext } from '../../context/AuthContext';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
     const { state } = useContext(AuthContext);
 
+    // const navigate = useNavigate();
+    // if(state['isLogin'] === false){
+    //     console.log(state['isLogin'])
+    //     navigate('/')
+    // }
     return (
+        state['isLogin'] ? 
         <div className={cx('wrapper')}>
             <div className={cx('left')}>
                 <Navbar />
@@ -22,6 +29,7 @@ function DefaultLayout({ children }) {
             </div>
             {state['isPlay'] ? <Footer /> : ''}
         </div>
+        : ''
     );
 }
 
