@@ -5,8 +5,7 @@ import { AiFillHome } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
 import { MdOutlineLibraryMusic } from 'react-icons/md';
 import { MdAdd } from 'react-icons/md';
-import { FcLike } from 'react-icons/fc';
-import { BsToggleOff, BsToggleOn, BsFillGiftFill } from 'react-icons/bs';
+import { BsToggleOff, BsToggleOn, BsHeartFill } from 'react-icons/bs';
 import { useCallback, useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import icon from '../../assets/images/gift.png'
@@ -57,7 +56,7 @@ function Navbar() {
                 </NavbarItem>
                 <div onClick={inHeartPage}>
                     <NavbarItem text="Bài hát đã thích">
-                        <FcLike className={cx('icon')} />
+                        <BsHeartFill className={cx('icon')} />
                     </NavbarItem>
                 </div>
 

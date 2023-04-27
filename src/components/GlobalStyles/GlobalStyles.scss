@@ -8,33 +8,31 @@
     --color-display: #1ed760;
     --color-music-item-hover: #282828;
     --color-text-author: #a4a4a4;
+    --color-music-name: white;
     --color-footer: #fff;
     --color-bupple: #f26398;
     --color-navbar-header-text: white;
     --color-navbar-item: white;
     --color-header: white;
     --color-header-icon: pink;
+    --color-disable: rgb(139, 133, 133);
 }
 
 :root {
-    // --background-color-header: #d98484;
-    --background-color-header: #f2acc6;
-    --background-color-navbar: #f195b7;
-    // --background-color-navbar: #f2b6b6;
-    // --background-color-footer: #f2b6b6;
-    --background-color-footer: rgb(242, 159, 172);
-    // --background-color-home: #f2acc6;
-    --background-color-home: #eeced6;
-    // --background-color-home: white;
-    // --background-color-music-item: #f288af;
-    --background-color-music-item: #f3a1bf;
-    --color-display: #1ed760;
-    --color-music-item-hover: #f26398;
-    --color-text-author: #f2c2c2;
-    --color-footer: #fff;
+    --background-color-header: #b1d4e0;
+    --background-color-navbar: #6da7cc;
+    --background-color-footer: #b1d4e0;
+    --background-color-home: #ecf6f3;
+    --background-color-music-item: #b8d4e0;
+    --color-display: #1f628e;
+    --color-music-item-hover: #88a9c3;
+    --color-text-author: #56aeff;
+    --color-music-name: #145da0;
+    --color-footer: #ecf6f3;
     --color-bupple: #f26398;
-    --color-navbar-header-text: #d95b5b;
-    --color-navbar-item: #d95b5b;
+    --color-navbar-header-text: #ecf6f3;
+    --color-navbar-item: #ecf6f3;
     --color-header: white;
     --color-header-icon: #d96666;
+    --color-disable: #b1d4e0;
 }

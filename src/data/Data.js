@@ -41,13 +41,13 @@ import music19 from "../assets/images/24h.jfif"
 export const data = [
     {musicId: 1, name: "Anh là ai", author: "Phương Ly", audio: AnhLaAi, image: music1, heart: false },
     {musicId: 2, name: "Anh nhớ ra", author: "Vũ", audio: AnhNhoRa, image: music2, heart: false },
-    {musicId: 3, name: "Bỏi vì là khi yêu", author: "Lyly", audio: BoiViLaKhiYeu, image: music3, heart: false },
+    {musicId: 3, name: "Bởi vì là khi yêu", author: "Lyly", audio: BoiViLaKhiYeu, image: music3, heart: false },
     {musicId: 4, name: "Có không giữ mất đừng tìm", author: "Trúc Nhân", audio: CoKhongGiuMatDungTim, image: music4, heart: false },
     {musicId: 5, name: "Đoạn kết mới", author: "Hoàng Dũng", audio: DoanKetMoi, image: music5, heart: false },
     {musicId: 6, name: "Hơn cả yêu", author: "Đức Phúc", audio: HonCaYeu, image: music6, heart: false},
     {musicId: 7, name: "Mặt trời của em", author: "Phương Ly", audio: MatTroiCuaEm, image: music7, heart: false},
     {musicId: 8, name: "Missing You", author: "Phương Ly", audio: MissingYou, image: music8, heart: false},
-    {musicId: 9, name: "Ném yêu vào không trung", author: "Hoàng Dũng", audio: NemYeuVaoKhongTrung, image: music9, heart: false},
+    {musicId: 9, name: "Ném câu yêu vào không trung", author: "Hoàng Dũng", audio: NemYeuVaoKhongTrung, image: music9, heart: false},
     {musicId: 10, name: "Ngày đầu tiên", author: "Đức Phúc", audio: NgayDauTien, image: music10, heart: false},
     {musicId: 11, name: "Người ta đâu thương em", author: "Lyly", audio: NguoiTaDauThuongEm, image: music11, heart: false},
     {musicId: 12, name: "Phút Ban Đầu", author: "Vũ", audio: PhutBanDau, image: music12, heart: false},
@@ -56,6 +56,6 @@ export const data = [
     {musicId: 15, name: "Vì anh đâu có biết", author: "Vũ", audio: ViAnhDauCoBiet, image: music15, heart: false },
     {musicId: 16, name: "Xin lỗi, Hạnh phúc mới", author: "Vũ", audio: XinLoiHanhPhucMoi, image: music16, heart: false },
     {musicId: 17, name: "Yêu được không", author: "Đức Phúc", audio: YeuDuocKhong, image: music17, heart: false },
-    {musicId: 18, name: "Yếu đuối", author: "Vũ", audio: YeuDuoi, image: music18, heart: false},
+    {musicId: 18, name: "Yếu đuối", author: "Hoàng Dũng", audio: YeuDuoi, image: music18, heart: false},
     {musicId: 19, name: "24h", author: "LyLy", audio: HaiTuGio, image: music19, heart: false},
 ]

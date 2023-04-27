@@ -20,7 +20,7 @@
 }
 
 .disable{
-    color: rgb(139, 133, 133);
+    color: var(--color-disable);
 }
 
 .disable:hover{
