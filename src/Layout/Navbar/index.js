@@ -8,11 +8,10 @@ import { MdAdd } from 'react-icons/md';
 import { BsToggleOff, BsToggleOn, BsHeartFill } from 'react-icons/bs';
 import { useCallback, useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-import icon from '../../assets/images/gift.png'
-import icon1 from '../../assets/images/giftAnimation.gif'
-import imageMusic from '../../assets/images/music.png'
-import Baloon from '../../assets/images/baloon.png'
-
+import icon from '../../assets/images/gift.png';
+import icon1 from '../../assets/images/giftAnimation.gif';
+import imageMusic from '../../assets/images/music.png';
+import Baloon from '../../assets/images/baloon.png';
 
 import NavbarItem from './NavbarItem';
 
@@ -21,28 +20,27 @@ const cx = classNames.bind(styles);
 // document.body.classList.toggle('colorful');
 
 function Navbar() {
-    const { inHeartPage, inHomePage, inGift } = useContext(AuthContext);
+    const { state, inHeartPage, inHomePage, inGift } = useContext(AuthContext);
     const [darkMode, setDarkMode] = useState(false);
 
     const addDarkMode = useCallback(() => {
         document.body.classList.toggle('dark-mode');
         setDarkMode(true);
-    })
+    });
 
     const removeDarkMode = useCallback(() => {
         document.body.classList.toggle('dark-mode');
         setDarkMode(false);
-    }, [])
+    }, []);
 
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
-                {
-                    darkMode ? 
+                {darkMode ? (
                     <GiLoveSong className={cx('header-icon-dark-mode')} />
-                    :
-                    <img className={cx('header-icon')} src={imageMusic} alt='#'></img>
-                }
+                ) : (
+                    <img className={cx('header-icon')} src={imageMusic} alt="#"></img>
+                )}
                 <span>Music</span>
             </div>
             <div className={cx('first-row')}>
@@ -76,19 +74,20 @@ function Navbar() {
                     )}
                 </NavbarItem>
             </div>
-            <div className={cx('third-row')} onClick={inGift}>
-                <div className={cx('gift-wrapper')}>
-                    {/* <BsFillGiftFill className={cx('icon')} /> */}
-                    <img className={cx('icon-animation')} src={icon1}></img>
-                    <img src={icon} className={cx('icon-gift')}></img>
+
+            {state['isAnh'] ? (
+                <div className={cx('third-row')} onClick={inGift}>
+                    <div className={cx('gift-wrapper')}>
+                        {/* <BsFillGiftFill className={cx('icon')} /> */}
+                        <img className={cx('icon-animation')} src={icon1}></img>
+                        <img src={icon} className={cx('icon-gift')}></img>
+                    </div>
                 </div>
-            </div>
-            {
-                darkMode ?
+            ) : (
                 ''
-                :
-                <img className={cx('baloon')} src={Baloon} alt='#'></img>
-            }
+            )}
+
+            {darkMode ? '' : <img className={cx('baloon')} src={Baloon} alt="#"></img>}
         </div>
     );
 }

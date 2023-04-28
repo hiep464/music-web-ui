@@ -17,13 +17,19 @@ function Login() {
     const [error, setError] = useState(false);
 
     const navigate = useNavigate();
-    const { login } = useContext(AuthContext);
+    const { login, limited } = useContext(AuthContext);
     const handleSubmit = () => {
         if(code === "do ngoc anh"){
-            navigate('/home');
             login();
-        }else
+            limited()
+            navigate('/home');
+        }else if (code === "mai fen"){
+            login()
+            navigate('/home');
+        }
+        else{
             setError(true);
+        }
     };
 
     return (

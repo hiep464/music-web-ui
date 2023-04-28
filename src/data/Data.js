@@ -51,7 +51,8 @@ import ChungTaCuaHienTai from "../assets/audio/ChungTaCuaHienTai.mp3"
 import ThangTuLaLoiNoiDoiCuaEm from "../assets/audio/ThangTuLaLoiNoiDoiCuaEm.mp3"
 import WaittingForYou from "../assets/audio/WaittingForYou.mp3"
 import NhuNhungGiAnhNoi from "../assets/audio/NhuNhungGiAnhNoi.mp3"
-
+import LaoTamKhoTu from "../assets/audio/LaoTamKhoTu.mp3"
+import MyHeartWeGoOn from "../assets/audio/MyHeartWeGoOn.mp3"
 
 
 import music1 from "../assets/images/AnhLaAi.jfif"
@@ -107,6 +108,8 @@ import music50 from "../assets/images/TimMotNuaCoDon.jfif"
 import music51 from "../assets/images/TinhYeuXanhLa.jfif"
 import music52 from "../assets/images/TinyLove.jfif"
 import music53 from "../assets/images/VungKyUc.jfif"
+import music54 from "../assets/images/LaoTamKhoTu.jfif"
+import music55 from "../assets/images/MyHeartWeGoOn.jfif"
 
 export const data = [
     {musicId: 1, name: "Anh là ai", author: "Phương Ly", audio: AnhLaAi, image: music1, heart: false },
@@ -162,4 +165,6 @@ export const data = [
     {musicId: 51, name: "Tình yêu xanh lá", author: "Thịnh Suy", audio: TinhYeuXanhLa, image: music51, heart: false},
     {musicId: 52, name: "Tiny love", author: "Thịnh Suy", audio: TinyLove, image: music52, heart: false},
     {musicId: 53, name: "Vùng ký ức", author: "Chilies", audio: VungKyUc, image: music53, heart: false},
+    {musicId: 54, name: "Lao Tâm Khổ Tứ", author: "Thanh Hưng", audio: LaoTamKhoTu, image: music54, heart: false},
+    {musicId: 55, name: "My heart we go on", author: "Céline Dion", audio: VungKyUc, image: music55, heart: false},
 ]
