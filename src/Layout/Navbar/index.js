@@ -10,6 +10,9 @@ import { useCallback, useContext, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import icon from '../../assets/images/gift.png'
 import icon1 from '../../assets/images/giftAnimation.gif'
+import imageMusic from '../../assets/images/music.png'
+import Baloon from '../../assets/images/baloon.png'
+
 
 import NavbarItem from './NavbarItem';
 
@@ -34,7 +37,12 @@ function Navbar() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
-                <GiLoveSong className={cx('header-icon')} />
+                {
+                    darkMode ? 
+                    <GiLoveSong className={cx('header-icon-dark-mode')} />
+                    :
+                    <img className={cx('header-icon')} src={imageMusic} alt='#'></img>
+                }
                 <span>Music</span>
             </div>
             <div className={cx('first-row')}>
@@ -75,6 +83,12 @@ function Navbar() {
                     <img src={icon} className={cx('icon-gift')}></img>
                 </div>
             </div>
+            {
+                darkMode ?
+                ''
+                :
+                <img className={cx('baloon')} src={Baloon} alt='#'></img>
+            }
         </div>
     );
 }
