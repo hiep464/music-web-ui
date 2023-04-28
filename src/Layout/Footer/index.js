@@ -32,6 +32,7 @@ function Footer() {
     const [isheart, setIsheart] = useState(false);
     const [isRepeat, setIsRepeat] = useState(false);
     const [Music, setMusic] = useState(null);
+    const [isRandom, setIsRandom] = useState(null);
 
     useEffect(() => {
         const progressValue1 = $('.' + cx('progress-bar'));
@@ -118,17 +119,21 @@ function Footer() {
     };
 
     const next = () => {
-        if (state['musicId'] < 12) state['musicId'] = state['musicId'] + 1;
+        if (state['musicId'] < state['musicNumber']) state['musicId'] = state['musicId'] + 1;
         else state['musicId'] = 1;
     };
 
     const prev = () => {
         if (state['musicId'] > 1) state['musicId'] = state['musicId'] - 1;
-        else state['musicId'] = 12;
+        else state['musicId'] = state['musicNumber'];
     };
 
     const autoPlay = () => {
-        if (musicId < 12) playMusic(musicId + 1);
+        if (isRandom) {
+            const random = Math.floor(Math.random() * state['musicNumber']) + 1;
+            playMusic(random)
+        }
+        else if (musicId < state['musicNumber']) playMusic(musicId + 1);
         else playMusic(1);
     };
 
@@ -145,6 +150,13 @@ function Footer() {
         if (state['isBupple']) removeBupple();
         else addBupple();
     };
+
+    const handleRandom = () => {
+        if(isRandom)
+            setIsRandom(false)
+        else
+            setIsRandom(true)
+    }
 
     return (
         <div className={cx('wrapper')}>
@@ -171,7 +183,7 @@ function Footer() {
             </div>
             <div className={cx('column-2')}>
                 <div className={cx('column-2-header')}>
-                    <RxMixerHorizontal className={cx('icon')} />
+                    <RxMixerHorizontal className={cx('icon', isRandom ? 'random' : '')} onClick={handleRandom}/>
                     <IoPlayBack className={cx('icon', 'icon-prev')} onClick={prev} />
                     {!isPlay ? (
                         <BsFillPlayCircleFill onClick={play} className={cx('icon', 'icon-play')} />
