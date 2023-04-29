@@ -165,6 +165,9 @@ export const data = [
     {musicId: 51, name: "Tình yêu xanh lá", author: "Thịnh Suy", audio: TinhYeuXanhLa, image: music51, heart: false},
     {musicId: 52, name: "Tiny love", author: "Thịnh Suy", audio: TinyLove, image: music52, heart: false},
     {musicId: 53, name: "Vùng ký ức", author: "Chilies", audio: VungKyUc, image: music53, heart: false},
-    {musicId: 54, name: "Lao Tâm Khổ Tứ", author: "Thanh Hưng", audio: LaoTamKhoTu, image: music54, heart: false},
-    {musicId: 55, name: "My heart we go on", author: "Céline Dion", audio: MyHeartWeGoOn, image: music55, heart: false},
+]
+
+export const dataNormal = [
+    {musicId: 1, name: "Lao Tâm Khổ Tứ", author: "Thanh Hưng", audio: LaoTamKhoTu, image: music54, heart: false},
+    {musicId: 2, name: "My heart we go on", author: "Céline Dion", audio: MyHeartWeGoOn, image: music55, heart: false},
 ]

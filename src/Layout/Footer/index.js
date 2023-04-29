@@ -9,19 +9,19 @@ import { BiVolumeLow } from 'react-icons/bi';
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import ReactAudioPlayer from 'react-audio-player';
-import { data } from '../../data/Data';
+import { data, dataNormal } from '../../data/Data';
 import Bupple from './Bupple';
 
 const cx = classNames.bind(styles);
 
 const $ = document.querySelector.bind(document);
 
-// const getNextHeart = (from, to) => {
-//     for(from; from < to; from ++){
-//         if(data[from - 1]?.heart)
-//          return from;
-//     }
-// }
+const getData = (anh) =>{
+    if(anh)
+        return data
+    else
+        return dataNormal
+}
 
 function Footer() {
     const [isPlay, setIsPlay] = useState(true);
@@ -33,6 +33,10 @@ function Footer() {
     const [isRepeat, setIsRepeat] = useState(false);
     const [Music, setMusic] = useState(null);
     const [isRandom, setIsRandom] = useState(null);
+
+    const { state, playMusic, addBupple, removeBupple } = useContext(AuthContext);
+    const { musicId } = state;
+    const musics = getData(state['isAnh'])
 
     useEffect(() => {
         const progressValue1 = $('.' + cx('progress-bar'));
@@ -51,26 +55,13 @@ function Footer() {
         });
     }, []);
 
-    const { state, playMusic, addBupple, removeBupple } = useContext(AuthContext);
-    const { musicId } = state;
-
-    // const getMusic = () => {
-    //     if (state['isPlay']) {
-    //         return data[state['musicId'] - 1];
-    //     }
-    //     return null;
-    // };
-
-    // const Music = getMusic();
-
     useEffect(() => {
         setIsPlay(true);
-        setIsheart(data[state['musicId'] - 1]?.heart);
-        setMusic(data[state['musicId'] - 1]);
+        setIsheart(musics[state['musicId'] - 1]?.heart);
+        setMusic(musics[state['musicId'] - 1]);
     }, [musicId]);
 
     const currentMusic = useRef();
-    // console.log(Music)
 
     const handleTimeMusic = useCallback(() => {
         const seconds = currentMusic.current.audioEl.current.duration;
@@ -119,22 +110,43 @@ function Footer() {
     };
 
     const next = () => {
-        if (state['musicId'] < state['musicNumber']) state['musicId'] = state['musicId'] + 1;
-        else state['musicId'] = 1;
+        if(state['isAnh']){
+            if (state['musicId'] < state['musicNumber']) state['musicId'] = state['musicId'] + 1;
+            else state['musicId'] = 1;
+        }else{
+            if (state['musicId'] < state['normal']) state['musicId'] = state['musicId'] + 1;
+            else state['musicId'] = 1;
+        }
     };
 
     const prev = () => {
-        if (state['musicId'] > 1) state['musicId'] = state['musicId'] - 1;
-        else state['musicId'] = state['musicNumber'];
+        if(state['isAnh']){
+            if (state['musicId'] > 1) state['musicId'] = state['musicId'] - 1;
+            else state['musicId'] = state['musicNumber'];
+        }else{
+            if (state['musicId'] > 1) state['musicId'] = state['musicId'] - 1;
+            else state['musicId'] = state['normal'];
+        }
     };
 
     const autoPlay = () => {
-        if (isRandom) {
-            const random = Math.floor(Math.random() * state['musicNumber']) + 1;
-            playMusic(random)
+        if(state['isAnh']){
+            if (isRandom) {
+                const random = Math.floor(Math.random() * state['musicNumber']) + 1;
+                playMusic(random)
+            }
+            else if (musicId < state['musicNumber']) playMusic(musicId + 1);
+            else playMusic(1);
         }
-        else if (musicId < state['musicNumber']) playMusic(musicId + 1);
-        else playMusic(1);
+        else
+        {
+            if (isRandom) {
+                const random = Math.floor(Math.random() * state['normal']) + 1;
+                playMusic(random)
+            }
+            else if (musicId < state['normal']) playMusic(musicId + 1);
+            else playMusic(1);
+        }
     };
 
     const handleRepeat = () => {

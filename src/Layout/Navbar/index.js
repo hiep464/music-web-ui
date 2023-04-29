@@ -52,9 +52,9 @@ function Navbar() {
                 <NavbarItem disable text="Tìm kiếm">
                     <BsSearch className={cx('icon', 'disable')} />
                 </NavbarItem>
-                <NavbarItem disable text="Thư viện">
+                {/* <NavbarItem disable text="Thư viện">
                     <MdOutlineLibraryMusic className={cx('icon', 'disable')} />
-                </NavbarItem>
+                </NavbarItem> */}
             </div>
             <div className={cx('second-row')}>
                 <NavbarItem disable text="Tạo playlist">

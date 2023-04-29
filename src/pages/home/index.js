@@ -1,22 +1,32 @@
 import styles from './home.module.scss';
 import classNames from 'classnames/bind';
 import MusicItem from './MusicItem';
-import { data } from '../../data/Data';
+import { data, dataNormal } from '../../data/Data';
+// import { dataNormal } from '../../data/Data';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import Gift from './Gift/gift';
 
 const cx = classNames.bind(styles);
 
+const getData = (anh) =>{
+    if(anh)
+        return data
+    else
+        return dataNormal
+}
+
 function Home() {
     const { state } = useContext(AuthContext);
+    
+    const musics = getData(state['isAnh'])
 
     return (
         <div className={cx('wrapper')}>
             {/* <div>title</div> */}
             <div className={cx('content')}>
                 {state['isHeart'] ? (
-                    data.map((item, index) => {
+                    musics.map((item, index) => {
                         if (item.heart)
                             return (
                                 <MusicItem
@@ -32,7 +42,7 @@ function Home() {
                 ) : state['isGift'] ? (
                     <Gift />
                 ) : (
-                    data.map((item, index) => {
+                    musics.map((item, index) => {
                         if (!item.heart)
                             return (
                                 <MusicItem

@@ -19,7 +19,8 @@ export const AuthContextProvider = ({ children }) => {
     const [isLogin, setIsLogin] = React.useState(false);
     const [isBupple, setIsBupple] = React.useState(false);
     const [isAnh, setIsAnh] = React.useState(false);
-    const musicNumber = 55
+    const musicNumber = 53
+    const normal = 2
 
     const playMusic = (id) => {
         setMusicId(id);
@@ -68,6 +69,7 @@ export const AuthContextProvider = ({ children }) => {
                     isLogin,
                     isBupple,
                     musicNumber,
+                    normal,
                     isAnh
                 },
                 playMusic,
