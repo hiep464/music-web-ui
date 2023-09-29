@@ -1,5 +1,5 @@
 @import 'normalize.css';
-.dark-mode {
+:root {
     --background-color-header: #0f0f0f;
     --background-color-navbar: black;
     --background-color-footer: #181818;
@@ -19,7 +19,7 @@
     --color-author-hover: white;
 }
 
-:root {
+.light-mode {
     --background-color-header: #b1d4e0;
     --background-color-navbar: #6da7cc;
     --background-color-footer: #b1d4e0;

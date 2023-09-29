@@ -1,4 +1,4 @@
-.wrapper{
+.wrapper {
     width: 200px;
     height: 268px;
     display: flex;
@@ -12,7 +12,7 @@
     border-radius: 4px;
 }
 
-.display{
+.display {
     display: none;
     position: absolute;
     right: 22px;
@@ -23,39 +23,48 @@
     // transition: all 0.2s linear;
 }
 
-.display-icon{
+.display-icon {
     height: 34px;
     width: 34px;
 }
 
-.wrapper:hover{
+.wrapper:hover {
     background-color: var(--color-music-item-hover);
 
-    .display{
+    .display {
         display: flex;
     }
 
-    .author{
+    .author {
         color: var(--color-author-hover);
     }
 }
 
-.content{
+.content {
     width: 160px;
     display: flex;
     // align-items: center;
     justify-self: center;
     flex-direction: column;
     padding: 20px;
+    position: relative;
 }
 
-.image{
+.image {
     width: 160px;
     height: 160px;
     border-radius: 4px;
 }
 
-.name{
+.image-playing {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 60px;
+    right: 60px;
+}
+
+.name {
     margin: 10px 0;
     height: 38px;
     font-size: 18px;
@@ -65,7 +74,7 @@
     // font-family: Montserrat Extra-Bold;
 }
 
-.author{
+.author {
     color: var(--color-text-author);
     font-weight: 600;
     // font-family: Montserrat Arabic extraLig;

@@ -5,7 +5,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { AuthContext } from '../../context/AuthContext';
 import { useContext } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -17,8 +17,7 @@ function DefaultLayout({ children }) {
     //     console.log(state['isLogin'])
     //     navigate('/')
     // }
-    return (
-        state['isLogin'] ? 
+    return state['isLogin'] ? (
         <div className={cx('wrapper')}>
             <div className={cx('left')}>
                 <Navbar />
@@ -29,7 +28,8 @@ function DefaultLayout({ children }) {
             </div>
             {state['isPlay'] ? <Footer /> : ''}
         </div>
-        : <Link to={'/'}>Đăng nhập</Link>
+    ) : (
+        <Link to={'/'}>Đăng nhập</Link>
     );
 }
 

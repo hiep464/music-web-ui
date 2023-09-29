@@ -9,35 +9,28 @@ import { BiVolumeLow } from 'react-icons/bi';
 import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import ReactAudioPlayer from 'react-audio-player';
-import { data, dataNormal } from '../../data/Data';
 import Bupple from './Bupple';
+import { rootBackend } from '../../constant';
 
 const cx = classNames.bind(styles);
 
 const $ = document.querySelector.bind(document);
 
-const getData = (anh) =>{
-    if(anh)
-        return data
-    else
-        return dataNormal
-}
-
 function Footer() {
+    const { state, addBupple, removeBupple, setMusicId, setIndexList } = useContext(AuthContext);
+    const { musicId, musics } = state;
     const [isPlay, setIsPlay] = useState(true);
     const [timeMusic, setTimeMusic] = useState('');
     const [curentTimeMusic, setCurentTimeMusic] = useState('0:00');
     const [progressValue, setProgressValue] = useState('0%');
     const [progressVolume, setProgressVolume] = useState(1.0);
-    const [isheart, setIsheart] = useState(false);
     const [isRepeat, setIsRepeat] = useState(false);
     const [Music, setMusic] = useState(null);
     const [isRandom, setIsRandom] = useState(null);
+    const [index, setIndex] = useState(null);
 
-    const { state, playMusic, addBupple, removeBupple } = useContext(AuthContext);
-    const { musicId } = state;
-    const musics = getData(state['isAnh'])
-
+    // const musics = getData(state['isAnh']);
+    const currentMusic = useRef();
     useEffect(() => {
         const progressValue1 = $('.' + cx('progress-bar'));
         progressValue1.addEventListener('click', (e) => {
@@ -56,97 +49,97 @@ function Footer() {
     }, []);
 
     useEffect(() => {
-        setIsPlay(true);
-        setIsheart(musics[state['musicId'] - 1]?.heart);
-        setMusic(musics[state['musicId'] - 1]);
+        // axios.get(`${baseApi}/music/${musicId}`).then((res) => {
+        //     console.log(res);
+        //     setMusic(res.data);
+        //     setId(res.data.id);
+        // });
+        const idx = musics?.findIndex((item) => item.id === musicId);
+        setIndex(idx);
+        setMusic(musics[idx]);
+        setIndexList(idx);
     }, [musicId]);
 
-    const currentMusic = useRef();
+    useEffect(() => {
+        setMusic(musics[index]);
+        // musicId = musics[index]?.id;
+        // setMusicId(musics[index]?.id);
+        setIndexList(musics[index]?.id);
+    }, [index]);
 
-    const handleTimeMusic = useCallback(() => {
+    const handleTimeMusic = () => {
         const seconds = currentMusic.current.audioEl.current.duration;
         const minute = Math.floor(seconds / 60);
         const second = Math.floor(seconds % 60);
         if (second < 10) setTimeMusic(minute + ':0' + second);
         else setTimeMusic(minute + ':' + second);
-    }, []);
+    };
 
     const play = useCallback(() => {
-        if (state['isPlay']) {
-            setIsPlay(true);
-            setProgressValue('0%');
-            currentMusic.current.audioEl.current.play();
-        }
+        setIsPlay(true);
+        currentMusic.current.audioEl.current.play();
     }, []);
 
-    const curentTime = useCallback(() => {
-        if (state['isPlay']) {
-            const secondsCurrent = currentMusic.current.audioEl.current.currentTime;
-            const seconds = currentMusic.current.audioEl.current.duration;
-            const minuteCurrent = Math.floor(secondsCurrent / 60);
-            const secondCurrent = Math.floor(secondsCurrent % 60);
-            const percentprogress = (secondsCurrent / seconds) * 100;
-            setProgressValue(`${percentprogress}%`);
-            if (secondCurrent < 10) setCurentTimeMusic(minuteCurrent + ':0' + secondCurrent);
-            else setCurentTimeMusic(minuteCurrent + ':' + secondCurrent);
-        }
-    }, []);
+    const curentTime = () => {
+        const secondsCurrent = currentMusic.current.audioEl.current.currentTime;
+        const seconds = currentMusic.current.audioEl.current.duration;
+        const minuteCurrent = Math.floor(secondsCurrent / 60);
+        const secondCurrent = Math.floor(secondsCurrent % 60);
+        const percentprogress = (secondsCurrent / seconds) * 100;
+        setProgressValue(`${percentprogress}%`);
+        if (secondCurrent < 10) setCurentTimeMusic(minuteCurrent + ':0' + secondCurrent);
+        else setCurentTimeMusic(minuteCurrent + ':' + secondCurrent);
+    };
 
     const pause = useCallback(() => {
-        if (state['isPlay']) {
-            setIsPlay(false);
-            currentMusic.current.audioEl.current.pause();
-        }
+        setIsPlay(false);
+        currentMusic.current.audioEl.current.pause();
     });
 
     const handleAddHeart = () => {
-        Music.heart = true;
-        setIsheart(true);
+        // Music.heart = true;
+        // setIsheart(true);
     };
 
     const handleRemoveHeart = () => {
-        Music.heart = false;
-        setIsheart(false);
+        // Music.heart = false;
+        // setIsheart(false);
     };
 
     const next = () => {
-        if(state['isAnh']){
-            if (state['musicId'] < state['musicNumber']) state['musicId'] = state['musicId'] + 1;
-            else state['musicId'] = 1;
-        }else{
-            if (state['musicId'] < state['normal']) state['musicId'] = state['musicId'] + 1;
-            else state['musicId'] = 1;
+        // axios.get(`${baseApi}/music/next/${id}`).then((res) => {
+        //     setMusic(res.data);
+        //     setId(res.data.id);
+        // });
+        console.log('next');
+        if (index === musics.length - 1) {
+            setIndex(0);
+        } else {
+            setIndex(index + 1);
         }
+        setIsPlay(true);
     };
 
     const prev = () => {
-        if(state['isAnh']){
-            if (state['musicId'] > 1) state['musicId'] = state['musicId'] - 1;
-            else state['musicId'] = state['musicNumber'];
-        }else{
-            if (state['musicId'] > 1) state['musicId'] = state['musicId'] - 1;
-            else state['musicId'] = state['normal'];
-        }
+        // axios.get(`${baseApi}/music/prev/${id}`).then((res) => {
+        //     setMusic(res.data);
+        //     setId(res.data.id);
+        // });
+        if (index === 0) setIndex(musics.length - 1);
+        else setIndex(index - 1);
+        setIsPlay(true);
     };
 
     const autoPlay = () => {
-        if(state['isAnh']){
-            if (isRandom) {
-                const random = Math.floor(Math.random() * state['musicNumber']) + 1;
-                playMusic(random)
-            }
-            else if (musicId < state['musicNumber']) playMusic(musicId + 1);
-            else playMusic(1);
-        }
-        else
-        {
-            if (isRandom) {
-                const random = Math.floor(Math.random() * state['normal']) + 1;
-                playMusic(random)
-            }
-            else if (musicId < state['normal']) playMusic(musicId + 1);
-            else playMusic(1);
-        }
+        // axios.get(`${baseApi}/music/random/${id}`).then((res) => {
+        //     setMusic(res.data);
+        //     setId(res.data.id);
+        // });
+        let randomNumber;
+        do {
+            randomNumber = Math.floor(Math.random() * musics.length);
+        } while (randomNumber === 1);
+        setIndex(randomNumber);
     };
 
     const handleRepeat = () => {
@@ -164,29 +157,27 @@ function Footer() {
     };
 
     const handleRandom = () => {
-        if(isRandom)
-            setIsRandom(false)
-        else
-            setIsRandom(true)
-    }
+        if (isRandom) setIsRandom(false);
+        else setIsRandom(true);
+    };
 
     return (
         <div className={cx('wrapper')}>
             {state['isBupple'] ? <Bupple /> : ''}
             <div className={cx('column-1')}>
                 <div className={cx('music-img')}>
-                    <img src={state['isPlay'] ? Music?.image : null} alt="#"></img>
+                    <img src={state['isPlay'] ? `${rootBackend}/${Music?.image}` : null} alt="#"></img>
                 </div>
                 <div className={cx('music-info')}>
                     <div className={cx('music-info-name')}>
                         <span>{Music ? Music?.name : ''}</span>
                     </div>
                     <div className={cx('music-info-author')}>
-                        <span>{Music ? Music?.author : ''}</span>
+                        <span>{Music ? Music?.artist_name : ''}</span>
                     </div>
                 </div>
                 <div className={cx('music-heart')}>
-                    {isheart ? (
+                    {Music?.heart ? (
                         <BsFillHeartFill className={cx('music-heart-icon')} onClick={handleRemoveHeart} />
                     ) : (
                         <AiOutlineHeart className={cx('music-heart-icon-outline')} onClick={handleAddHeart} />
@@ -195,7 +186,7 @@ function Footer() {
             </div>
             <div className={cx('column-2')}>
                 <div className={cx('column-2-header')}>
-                    <RxMixerHorizontal className={cx('icon', isRandom ? 'random' : '')} onClick={handleRandom}/>
+                    <RxMixerHorizontal className={cx('icon', isRandom ? 'random' : '')} onClick={handleRandom} />
                     <IoPlayBack className={cx('icon', 'icon-prev')} onClick={prev} />
                     {!isPlay ? (
                         <BsFillPlayCircleFill onClick={play} className={cx('icon', 'icon-play')} />
@@ -232,14 +223,14 @@ function Footer() {
                 className={cx('hide')}
                 id="audio-player"
                 // src={state['musicId'] ? Music?.audio : null}
-                src={Music?.audio}
+                src={Music?.audio ? `${rootBackend}/${Music?.audio}` : null}
                 autoPlay
                 controls
                 onLoadedMetadata={handleTimeMusic}
                 onListen={curentTime}
                 listenInterval={1000}
                 volume={progressVolume}
-                onEnded={isRepeat ? repeatMusic : autoPlay}
+                onEnded={isRepeat ? repeatMusic : isRandom ? autoPlay : next}
             />
         </div>
     );

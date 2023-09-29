@@ -1,16 +1,16 @@
-.wrapper{
+.wrapper {
     display: flex;
 }
 
-.left{
+.left {
     width: 240px;
 }
 
-.right{
+.right {
     width: calc(100% - 240px);
 }
 
-.right-content{
+.right-content {
     background-color: var(--background-color-home);
     margin-top: 48px;
     min-height: calc(100vh - 48px);

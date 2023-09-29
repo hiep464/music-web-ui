@@ -16,47 +16,41 @@ export const AuthContextProvider = ({ children }) => {
     const [isPlay, setIsPlay] = React.useState(false);
     const [isHeart, setIsHeart] = React.useState(false);
     const [isGift, setIsGift] = React.useState(false);
-    const [isLogin, setIsLogin] = React.useState(false);
+    const [isLogin, setIsLogin] = React.useState(localStorage.getItem('isLogin'));
     const [isBupple, setIsBupple] = React.useState(false);
     const [isAnh, setIsAnh] = React.useState(false);
-    const musicNumber = 53
-    const normal = 2
+    const [musics, setMusics] = React.useState([]);
+    const [indexList, setIndexList] = React.useState(false);
+    const [userid, setUserid] = React.useState(localStorage.getItem('userid'));
+    const musicNumber = 53;
+    const normal = 2;
 
-    const playMusic = (id) => {
-        setMusicId(id);
+    const playMusic = (id, musics) => {
+        setMusics(musics);
         setIsPlay(true);
-    }
-
-    const inHeartPage = () => {
-        setIsHeart(true)
-        setIsGift(true)
-    }
-
-    const inHomePage = () => {
-        setIsHeart(false)
-        setIsGift(false)
-    }
-
+        setMusicId(id);
+    };
     const inGift = () => {
-        setIsGift(true)
-        setIsHeart(false)
-    }
+        setIsGift(true);
+        setIsHeart(false);
+    };
 
-    const login = () => {
-        setIsLogin(true)
-    }
+    const login = (userid) => {
+        setIsLogin(true);
+        setUserid(userid);
+    };
 
     const addBupple = () => {
-        setIsBupple(true)
-    }
+        setIsBupple(true);
+    };
 
     const removeBupple = () => {
-        setIsBupple(false)
-    }
+        setIsBupple(false);
+    };
 
     const limited = () => {
-        setIsAnh(true)
-    }
+        setIsAnh(true);
+    };
 
     return (
         <AuthContext.Provider
@@ -70,16 +64,20 @@ export const AuthContextProvider = ({ children }) => {
                     isBupple,
                     musicNumber,
                     normal,
-                    isAnh
+                    isAnh,
+                    musics,
+                    indexList,
+                    userid,
                 },
                 playMusic,
-                inHeartPage,
-                inHomePage,
                 inGift,
                 login,
                 addBupple,
                 removeBupple,
-                limited
+                limited,
+                setMusics,
+                setMusicId,
+                setIndexList,
             }}
         >
             {children}
